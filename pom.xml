@@ -32,6 +32,13 @@
             <version>RELEASE</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.aeonbits.owner</groupId>
+            <artifactId>owner-java8</artifactId>
+            <version>1.0.12</version>
+        </dependency>
+
+
 
     </dependencies>
 </project>

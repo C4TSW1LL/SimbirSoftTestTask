@@ -8,15 +8,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 
-public class FirstTest {
+public class FirstTest extends TestSetUp {
     public ChromeDriver driver;
     public ChromeOptions options;
     String currentUrl = "https://www.saucedemo.com/checkout-complete.html";
-    String currentText = "Thank you for your order!";
-    //String currentText = "“THANK YOU FOR YOUR ORDER”";
+    //String currentText = "Thank you for your order!";
+    String currentText = "THANK YOU FOR YOUR ORDER";
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "D:\\IntelliJ IDEA Community Edition 2022.3.2\\Code\\TestTask\\QAA\\driver\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\makar\\OneDrive\\Рабочий стол\\QAA\\driver\\chromedriver.exe");
 
         options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
@@ -58,5 +58,7 @@ public class FirstTest {
         } else {
             System.out.println("Fail");
         }
+
+
     }
 }
