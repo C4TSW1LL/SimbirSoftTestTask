@@ -1,7 +1,10 @@
 package com.saucedemo;
 
+import config.ConfigTests;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.After;
 import org.junit.Before;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -12,8 +15,13 @@ public class TestSetUp {
     /**
      * Переменные с экземплярами драйвера и настроек браузера
      */
-    protected ChromeDriver driver;
+    protected WebDriver driver;
     public ChromeOptions options;
+
+    /**
+     * Экземпляр конфига с параметрами
+     */
+    private ConfigTests config = ConfigFactory.create(ConfigTests.class, System.getenv());
 
     /**
      * Общие настройки тестов перед выполнением
@@ -21,7 +29,7 @@ public class TestSetUp {
     @Before
     public void setUp() {
         // Установка драйвера и пути к нему
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\makar\\OneDrive\\Рабочий стол\\QAA\\driver\\chromedriver.exe");
+        System.setProperty(config.driverPropetry(), config.driverPath());
 
         // Создание экземпляра настройки браузера
         options = new ChromeOptions();
@@ -32,11 +40,13 @@ public class TestSetUp {
         // Создание экземпляра драйвера с примененным фиксом
         driver = new ChromeDriver(options);
 
-        // Открытие страницы по url
-        driver.get("https://www.saucedemo.com/");
-
         // Открытие браузера на полный экран
-        driver.manage().window().fullscreen();
+        driver.manage().window().maximize();
+
+        // Открытие страницы по url
+        driver.get(config.url());
+
+
     }
 
     /**
