@@ -41,11 +41,23 @@ public class InventoryPage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
+
+    /**
+     * Метод выбора определенного товара на странице
+     *
+     * @param numberOfItem Порядковый номер товара на странице
+     * @return текущая страница
+     */
     public InventoryPage chooseItem(int numberOfItem) {
         FirstItemOnPage.findElement(By.xpath("//button[contains(@id, 'add-to-cart')][" + numberOfItem +"]")).click();
         return this;
     }
 
+    /**
+     * Метод клика по кнопки "Корзина"
+     *
+     * @return текущая страница
+     */
     public InventoryPage clickCartButton() {
         ShoppingCart.click();
         return this;
