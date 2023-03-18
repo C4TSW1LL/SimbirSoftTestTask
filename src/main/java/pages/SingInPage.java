@@ -1,7 +1,5 @@
 package pages;
 
-import config.ConfigTests;
-import org.aeonbits.owner.ConfigFactory;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,11 +15,6 @@ public class SingInPage {
      * Экземпляр драйвера для браузера
      */
     private WebDriver driver;
-
-    /**
-     * Экземпляр конфига с параметрами для тестов
-     */
-    private ConfigTests config = ConfigFactory.create(ConfigTests.class, System.getenv());
 
     /**
      * Элемент поля имени пользователя на странице
@@ -52,7 +45,6 @@ public class SingInPage {
      *
      * @param driver драйвер для управления браузером
      */
-
     public SingInPage(final WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -94,10 +86,8 @@ public class SingInPage {
      * Метод проверки текста ошибки на соответствие
      *
      * @param text Текст для проверки соответствия
-     * @return текущая страница
      */
-    public SingInPage textComparsion(String text) {
-        Assert.assertEquals(ErrorText.getText(), text);
-        return this;
+    public void textCompression(String text) {
+        Assert.assertEquals(text, ErrorText.getText());
     }
 }

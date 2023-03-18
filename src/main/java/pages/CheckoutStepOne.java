@@ -1,7 +1,5 @@
 package pages;
 
-import config.ConfigTests;
-import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,11 +14,6 @@ public class CheckoutStepOne {
      * Экземпляр драйвера для браузера
      */
     private WebDriver driver;
-
-    /**
-     * Экземпляр конфига с параметрами для тестов
-     */
-    private ConfigTests config = ConfigFactory.create(ConfigTests.class, System.getenv());
 
     /**
      * Элемент имени на странице оформления заказа
@@ -51,7 +44,7 @@ public class CheckoutStepOne {
      *
      * @param driver
      */
-    public CheckoutStepOne (WebDriver driver) {
+    public CheckoutStepOne(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
@@ -84,7 +77,7 @@ public class CheckoutStepOne {
      * @param postalCode - почтовый индекс закасчика
      * @return - текущая страница
      */
-    public  CheckoutStepOne inputPostalCode(String postalCode) {
+    public CheckoutStepOne inputPostalCode(String postalCode) {
         PostalCodeField.sendKeys(postalCode);
         return this;
     }
@@ -94,9 +87,8 @@ public class CheckoutStepOne {
      *
      * @return - текущая страница
      */
-    public CheckoutStepOne clickContinueButton() {
+    public void clickContinueButton() {
         ContinueButton.click();
-        return this;
     }
 
 }

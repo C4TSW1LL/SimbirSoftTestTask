@@ -1,7 +1,5 @@
 package pages;
 
-import config.ConfigTests;
-import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,11 +15,6 @@ public class CheckoutStepTwo {
     private WebDriver driver;
 
     /**
-     * Экземпляр конфига с параметрами для тестов
-     */
-    private ConfigTests config = ConfigFactory.create(ConfigTests.class, System.getenv());
-
-    /**
      * Элемент кнопки завершения заказа
      */
     @FindBy(id = "finish")
@@ -30,19 +23,20 @@ public class CheckoutStepTwo {
 
     /**
      * Конструктор для страницы завершения заказа
+     *
      * @param driver - драйвер для управления браузером
      */
-    public CheckoutStepTwo (WebDriver driver) {
+    public CheckoutStepTwo(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
     /**
      * Метод кнопки окончания создания заказа
+     *
      * @return
      */
-    public CheckoutStepTwo clickFinishButton() {
+    public void clickFinishButton() {
         FinishButton.click();
-        return this;
     }
 }

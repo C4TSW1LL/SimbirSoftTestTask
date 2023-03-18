@@ -1,6 +1,7 @@
 package com.saucedemo;
 
 import config.ConfigTests;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.After;
 import org.junit.Before;
@@ -28,8 +29,8 @@ public class TestSetUp {
      */
     @Before
     public void setUp() {
-        // Установка драйвера и пути к нему
-        System.setProperty(config.driverPropetry(), config.driverPath());
+        // Установка драйвера GoogleChrome
+        WebDriverManager.chromedriver().setup();
 
         // Создание экземпляра настройки браузера
         options = new ChromeOptions();
@@ -50,7 +51,7 @@ public class TestSetUp {
     }
 
     /**
-     * Общие настройки тестов перед выполнением
+     * Общие настройки тестов после выполнения
      */
     @After
     public void shutDown() {

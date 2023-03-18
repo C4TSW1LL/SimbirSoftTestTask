@@ -1,12 +1,11 @@
 package pages;
 
-import config.ConfigTests;
-import org.aeonbits.owner.ConfigFactory;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.junit.Assert;
+
 
 /**
  * Работа со страницей подтвержденного заказа
@@ -17,11 +16,6 @@ public class CheckoutComplete {
      * Экземпляр драйвера для браузера
      */
     private WebDriver driver;
-
-    /**
-     * Экземпляр конфига с параметрами для тестов
-     */
-    private ConfigTests config = ConfigFactory.create(ConfigTests.class, System.getenv());
 
     /**
      * Элемент текста об успешном создании заказа
@@ -44,10 +38,10 @@ public class CheckoutComplete {
     /**
      * Метод сравнения url
      *
-     * @param url - эталонный url
+     * @param url эталонный url
      * @return
      */
-    public CheckoutComplete urlComparison(String url) {
+    public CheckoutComplete urlCompression(String url) {
         Assert.assertEquals(driver.getCurrentUrl(), url);
         return this;
     }
@@ -55,11 +49,10 @@ public class CheckoutComplete {
     /**
      * Метод стравнения текста
      *
-     * @param text - эталонный текст
+     * @param text эталонный текст
      * @return
      */
-    public CheckoutComplete textComparsion(String text) {
-        Assert.assertEquals(currentText.getText(), text);
-        return this;
+    public void textCompression(String text) {
+        Assert.assertEquals(text, currentText.getText());
     }
 }

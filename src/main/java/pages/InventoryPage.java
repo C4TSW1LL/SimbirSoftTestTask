@@ -1,7 +1,5 @@
 package pages;
 
-import config.ConfigTests;
-import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,11 +12,6 @@ public class InventoryPage {
      * Экземпляр драйвера для браузера
      */
     private WebDriver driver;
-
-    /**
-     * Экземпляр конфига с параметрами для тестов
-     */
-    private ConfigTests config = ConfigFactory.create(ConfigTests.class, System.getenv());
 
     /**
      * Элемент добавления в корзину первого товара на странице
@@ -37,7 +30,7 @@ public class InventoryPage {
      *
      * @param driver драйвер для управления браузером
      */
-    public InventoryPage (WebDriver driver) {
+    public InventoryPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
@@ -49,7 +42,7 @@ public class InventoryPage {
      * @return текущая страница
      */
     public InventoryPage chooseItem(int numberOfItem) {
-        FirstItemOnPage.findElement(By.xpath("//button[contains(@id, 'add-to-cart')][" + numberOfItem +"]")).click();
+        FirstItemOnPage.findElement(By.xpath("//button[contains(@id, 'add-to-cart')][" + numberOfItem + "]")).click();
         return this;
     }
 
@@ -58,9 +51,8 @@ public class InventoryPage {
      *
      * @return текущая страница
      */
-    public InventoryPage clickCartButton() {
+    public void clickCartButton() {
         ShoppingCart.click();
-        return this;
     }
 
 }

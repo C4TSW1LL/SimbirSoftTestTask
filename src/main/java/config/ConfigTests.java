@@ -5,6 +5,4 @@ import org.aeonbits.owner.Config;
 public interface ConfigTests extends Config {
 
     String url();
-    String driverPath();
-    String driverPropetry();
 }
